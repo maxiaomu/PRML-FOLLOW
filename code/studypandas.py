@@ -87,7 +87,37 @@ content = pd.read_table()
 excel_content.to_csv('',encoding='utf-8',index=False)
 '''
 '''
-第五部分
+第五部分：筛选数据
+'''
+#1.筛选D列数据中大于0的行
+#df[df.D>0]
+#2.使用&符号可以实现多条件筛选
+#df[(df.D>0)&(df.C<0)]
+#3.使用|符号可以实现多条件筛选
+#df[(df.D>0)|(df.C<0)]
+#4.我们也可先限定行列，在筛选
+#df[['A','C']][(df.B>0)&(df.D>0)]
+#5.使用isin方法来筛选特定的值，把要筛选的值写到一个列表里
+#goal_list = [0.164645,0.646455,0.481654] 
+#df['D'].isin(goal_list)
+'''
+第六部分：增加删除数组
+'''
+#1.增加列
+# 在df数据中增加一列
+#df['E'] = pd.Series(np.random.randn(6),index=df.index)
+#print(df)
+#还可以插入一列数据到任意位置，如第2列
+#df.insert(1,'a',np.random.randn(6))
+#print(df)
+#2.删除列
+#永久删除某一列数据用del
+#del df['a']
+#用drop不改变原有的df中的而数据，而是返回另一个dataframe来存放删除后的数据
+#df9=df.drop(['D','E'],axis=1)
+
+'''
+第七部分：计数统计
 '''
 
 
